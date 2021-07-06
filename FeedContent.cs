@@ -25,6 +25,14 @@ namespace Aggregate
             storySourceAndTags.Text = "Published By: " + publisher + ", Tags: " + tags;
             webAddress = webAddr;
             storyImage.LoadAsync(imageLoc);
+            this.Click += FeedContent_Click;
+        }
+
+        private void FeedContent_Click(object sender, EventArgs e)
+        {
+            //Console.WriteLine("Click Detected");
+            Browser b = new Browser(webAddress);
+            b.Show();
         }
     }
 }

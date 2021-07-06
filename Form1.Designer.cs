@@ -77,6 +77,7 @@ namespace Aggregate
             // 
             // feedPanel
             // 
+            this.feedPanel.AutoScroll = true;
             this.feedPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(58)))), ((int)(((byte)(74)))));
             this.feedPanel.Location = new System.Drawing.Point(0, 60);
             this.feedPanel.Name = "feedPanel";
@@ -132,6 +133,10 @@ namespace Aggregate
             // 
             // storyPanel
             // 
+            this.storyPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.storyPanel.AutoScroll = true;
             this.storyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(102)))), ((int)(((byte)(116)))));
             this.storyPanel.Location = new System.Drawing.Point(266, 60);
             this.storyPanel.Name = "storyPanel";

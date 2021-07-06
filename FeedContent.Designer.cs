@@ -76,7 +76,7 @@ namespace Aggregate
             this.Controls.Add(this.storyTitleLabel);
             this.Controls.Add(this.storyImage);
             this.Name = "FeedContent";
-            this.Size = new System.Drawing.Size(1115, 80);
+            this.Size = new System.Drawing.Size(1100, 80);
             ((System.ComponentModel.ISupportInitialize)(this.storyImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
