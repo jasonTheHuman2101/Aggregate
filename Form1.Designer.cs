@@ -42,7 +42,6 @@ namespace Aggregate
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
-            this.storyPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -92,7 +91,7 @@ namespace Aggregate
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Location = new System.Drawing.Point(266, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1119, 60);
             this.panel3.TabIndex = 1;
@@ -134,10 +133,9 @@ namespace Aggregate
             // storyPanel
             // 
             this.storyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(102)))), ((int)(((byte)(116)))));
-            this.storyPanel.Controls.Add(this.panel3);
-            this.storyPanel.Location = new System.Drawing.Point(266, 0);
+            this.storyPanel.Location = new System.Drawing.Point(266, 60);
             this.storyPanel.Name = "storyPanel";
-            this.storyPanel.Size = new System.Drawing.Size(1119, 662);
+            this.storyPanel.Size = new System.Drawing.Size(1119, 602);
             this.storyPanel.TabIndex = 3;
             // 
             // MainForm
@@ -146,6 +144,7 @@ namespace Aggregate
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(102)))), ((int)(((byte)(116)))));
             this.ClientSize = new System.Drawing.Size(1384, 661);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.storyPanel);
             this.Controls.Add(this.feedPanel);
             this.Controls.Add(this.panel1);
@@ -157,7 +156,6 @@ namespace Aggregate
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.storyPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
