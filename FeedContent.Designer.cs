@@ -42,7 +42,7 @@ namespace Aggregate
             this.storyImage.Location = new System.Drawing.Point(0, 0);
             this.storyImage.Name = "storyImage";
             this.storyImage.Size = new System.Drawing.Size(80, 80);
-            this.storyImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.storyImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.storyImage.TabIndex = 0;
             this.storyImage.TabStop = false;
             // 
