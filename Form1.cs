@@ -5,17 +5,21 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace Aggregate
 {
     public partial class MainForm : Form
     {
+        static Sources scs;
+
         public MainForm()
         {
             InitializeComponent();
-
+            GetSourcesFromFile();
             //Displays articles
             //FeedContent[] fc = new FeedContent[10];
             //int x = 0;
@@ -33,7 +37,22 @@ namespace Aggregate
         }
         static void GetSourcesFromFile()
         {
+            #region IF DATA NEEDS GENERATING, VIEW THE FOLLOWING
+            //Sources srcs = new Sources();
+            //srcs.sources = new List<Source>();
+            //Source s = new Source();
+            //s.imageUrl = "https://news.bbcimg.co.uk/nol/shared/img/bbc_news_120x60.gif";
+            //s.sourceDir = "http://feeds.bbci.co.uk/news/rss.xml?edition=uk#";
+            //s.sourceName = "BBC News";
+            //srcs.sources.Add(s);
+            //srcs.sources.Add(s);
 
+            //string json = JsonConvert.SerializeObject(srcs);
+            //Console.WriteLine(json);
+            #endregion
+            //Load The File
+            string json = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/.aggregate/sources.json");
+            scs = JsonConvert.DeserializeObject<Sources>(json);
         }
     }
 }
