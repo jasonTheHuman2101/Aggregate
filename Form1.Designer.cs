@@ -121,6 +121,7 @@ namespace Aggregate
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(318, 40);
             this.textBox1.TabIndex = 3;
+            this.textBox1.Text = "ignore me";
             this.textBox1.Visible = false;
             // 
             // label2
@@ -159,6 +160,7 @@ namespace Aggregate
             this.editSources.TabIndex = 4;
             this.editSources.Text = "Edit Sources";
             this.editSources.UseVisualStyleBackColor = false;
+            this.editSources.Click += new System.EventHandler(this.editSources_Click);
             // 
             // MainForm
             // 
@@ -173,7 +175,7 @@ namespace Aggregate
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Aggregate";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

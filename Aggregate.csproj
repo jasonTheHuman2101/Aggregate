@@ -92,6 +92,12 @@
     <Compile Include="Browser.Designer.cs">
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditSources.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditSources.Designer.cs">
+      <DependentUpon>EditSources.cs</DependentUpon>
+    </Compile>
     <Compile Include="FeedContent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
     <EmbeddedResource Include="Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditSources.resx">
+      <DependentUpon>EditSources.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FeedContent.resx">
       <DependentUpon>FeedContent.cs</DependentUpon>

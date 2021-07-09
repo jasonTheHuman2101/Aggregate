@@ -21,9 +21,7 @@ namespace Aggregate
         public MainForm()
         {
             InitializeComponent();
-            GetSourcesFromFile();
-            DisplaySources();
-            DisplayArticles();
+            loadData();
             #region DISPLAY DATA IN EMERGENCY
             //Displays articles
             //FeedContent[] fc = new FeedContent[10];
@@ -41,6 +39,17 @@ namespace Aggregate
             //feedPanel.Controls.Add(svo);
             #endregion
         }
+
+        void loadData()
+        {
+            feedPanel.Controls.Clear();
+            storyPanel.Controls.Clear();
+
+            GetSourcesFromFile();
+            DisplaySources();
+            DisplayArticles();
+        }
+
         void GetSourcesFromFile()
         {
             #region IF DATA NEEDS GENERATING, VIEW THE FOLLOWING
@@ -151,6 +160,12 @@ namespace Aggregate
                     arts.articles.Add(article); //Adds the article to the list of articles
                 }
             }
+        }
+
+        private void editSources_Click(object sender, EventArgs e)
+        {
+            EditSources es = new EditSources();
+            es.ShowDialog();
         }
     }
 }
