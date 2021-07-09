@@ -20,6 +20,7 @@ namespace Aggregate
         {
             InitializeComponent();
             GetSourcesFromFile();
+            DisplaySources();
             //Displays articles
             //FeedContent[] fc = new FeedContent[10];
             //int x = 0;
@@ -35,7 +36,7 @@ namespace Aggregate
             //SourceViewOption svo = new SourceViewOption("Jason News", "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimg12.deviantart.net%2F2f45%2Fi%2F2009%2F028%2F1%2F0%2Ffunny_dog_2_by_cathita.jpg&f=1&nofb=1");
             //feedPanel.Controls.Add(svo);
         }
-        static void GetSourcesFromFile()
+        void GetSourcesFromFile()
         {
             #region IF DATA NEEDS GENERATING, VIEW THE FOLLOWING
             //Sources srcs = new Sources();
@@ -51,8 +52,37 @@ namespace Aggregate
             //Console.WriteLine(json);
             #endregion
             //Load The File
-            string json = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/.aggregate/sources.json");
-            scs = JsonConvert.DeserializeObject<Sources>(json);
+            try
+            {
+                string json = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/.aggregate/sources.json");
+                scs = JsonConvert.DeserializeObject<Sources>(json);
+            }
+            catch(Exception e)
+            {
+                string tempJson = "{\"sources\":[{\"sourceName\":\"BBC News\",\"sourceDir\":\"http://feeds.bbci.co.uk/news/rss.xml?edition=uk#\",\"imageUrl\":\"https://news.bbcimg.co.uk/nol/shared/img/bbc_news_120x60.gif\"}]}";
+                if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/.aggregate"))
+                {
+                    Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/.aggregate");
+                }
+                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/.aggregate/sources.json", tempJson);
+                MessageBox.Show("An error occured when attempting to load news sources from their file. A new Aggregate folder and source folder has been created.\nIf this is a new installation, don't worry! This is expected to happen.","Error loading sources from file.");
+                scs = JsonConvert.DeserializeObject<Sources>(tempJson);
+                Console.WriteLine(tempJson);
+            }
+        }
+
+        void DisplaySources()
+        {
+            int x = 0;
+            foreach(Source s in scs.sources)
+            {
+                SourceViewOption svo = new SourceViewOption(s.sourceName, s.imageUrl);
+                int yLoc = 15 + (x * 60);
+                svo.Location = new Point(9, yLoc);
+                feedPanel.Controls.Add(svo);
+                Console.WriteLine("Added");
+                x++;
+            }
         }
     }
 }

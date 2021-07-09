@@ -39,7 +39,7 @@ namespace Aggregate
             this.providerLogo.Location = new System.Drawing.Point(0, 0);
             this.providerLogo.Name = "providerLogo";
             this.providerLogo.Size = new System.Drawing.Size(50, 50);
-            this.providerLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.providerLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.providerLogo.TabIndex = 0;
             this.providerLogo.TabStop = false;
             // 
