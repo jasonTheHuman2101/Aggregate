@@ -43,7 +43,7 @@ namespace Aggregate
             this.browserControl.DefaultBackgroundColor = System.Drawing.Color.White;
             this.browserControl.Location = new System.Drawing.Point(-1, 0);
             this.browserControl.Name = "browserControl";
-            this.browserControl.Size = new System.Drawing.Size(523, 447);
+            this.browserControl.Size = new System.Drawing.Size(1347, 726);
             this.browserControl.TabIndex = 0;
             this.browserControl.ZoomFactor = 1D;
             // 
@@ -51,7 +51,7 @@ namespace Aggregate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 450);
+            this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.browserControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Browser";

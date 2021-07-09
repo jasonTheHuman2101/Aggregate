@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using Newtonsoft.Json;
 
 namespace Aggregate
@@ -15,12 +16,15 @@ namespace Aggregate
     public partial class MainForm : Form
     {
         static Sources scs;
+        static Articles arts;
 
         public MainForm()
         {
             InitializeComponent();
             GetSourcesFromFile();
             DisplaySources();
+            DisplayArticles();
+            #region DISPLAY DATA IN EMERGENCY
             //Displays articles
             //FeedContent[] fc = new FeedContent[10];
             //int x = 0;
@@ -35,6 +39,7 @@ namespace Aggregate
             //Adds a news source
             //SourceViewOption svo = new SourceViewOption("Jason News", "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimg12.deviantart.net%2F2f45%2Fi%2F2009%2F028%2F1%2F0%2Ffunny_dog_2_by_cathita.jpg&f=1&nofb=1");
             //feedPanel.Controls.Add(svo);
+            #endregion
         }
         void GetSourcesFromFile()
         {
@@ -82,6 +87,69 @@ namespace Aggregate
                 feedPanel.Controls.Add(svo);
                 Console.WriteLine("Added");
                 x++;
+            }
+        }
+
+        void DisplayArticles()
+        {
+            int i = 0;
+            LoadArticles();
+            foreach(Article a in arts.articles)
+            {
+                int y = 15 + i * 95;
+                FeedContent fc = new FeedContent(a.title, a.tags, a.author, a.link, a.image);
+                fc.Location = new Point(2, y);
+                storyPanel.Controls.Add(fc);
+                i++;
+            }
+        }
+
+        void LoadArticles()
+        {
+            arts = new Articles();
+            arts.articles = new List<Article>();
+            
+            foreach(Source s in scs.sources)
+            {
+                string xmlUrl = s.sourceDir;
+                string pub = s.sourceName;
+
+                //As the articles are in XML format (as per RSS Standars) putting them into a format i can (and am  willing to) work with may get messy, so i separated it from displaying methods
+                XmlDocument xmlDoc = new XmlDocument();//  ----¬
+                xmlDoc.Load(xmlUrl);// ---- ---- ---- ---- ---- \-- Loads the RSS feed into the program. The value in .Load defines the URL
+
+                XmlNodeList nodes = xmlDoc.SelectNodes("rss/channel/item"); //Selects all the items in the RSS feed.
+
+                foreach (XmlNode node in nodes)
+                {
+                    Article article = new Article();
+                    XmlNode rssSubNodeTitle = node.SelectSingleNode("title");
+                    article.title = rssSubNodeTitle.InnerText;
+
+                    XmlNode rssSubNodeLink = node.SelectSingleNode("link");
+                    article.link = rssSubNodeLink.InnerText;
+
+                    XmlNode rssSubNodeDesc = node.SelectSingleNode("description");
+                    article.description = rssSubNodeDesc.InnerText;
+
+                    XmlNode rssSubNodeImg = node.SelectSingleNode("enclosure");
+                    if (rssSubNodeImg != null && rssSubNodeImg.Attributes["type"].Value.StartsWith("image"))
+                    {
+                        article.image = rssSubNodeImg.Attributes["url"].Value;
+                    }
+                    else
+                    {
+                        article.image = "https://www.colorhexa.com/707070.png";
+                    }
+
+                    //XmlNode rssSubNodeCat = node.SelectSingleNode("category");
+                    //article.tags = rssSubNodeCat.InnerText;
+                    article.tags = "";
+                    //Somehow, you need to incorporate a way to get the source and categories, jason! ----------------------------------------------------------------493585283475243809752764560413875097
+                    article.author = pub;
+
+                    arts.articles.Add(article); //Adds the article to the list of articles
+                }
             }
         }
     }

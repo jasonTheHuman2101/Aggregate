@@ -22,10 +22,13 @@ namespace Aggregate
         private void DisplayData(string title, string tags, string publisher, string webAddr, string imageLoc)
         {
             storyTitleLabel.Text = title;
-            storySourceAndTags.Text = "Published By: " + publisher + ", Tags: " + tags;
+            storySourceAndTags.Text = "Published By: " + publisher /*+ ", Tags: " + tags*/;
             webAddress = webAddr;
             storyImage.LoadAsync(imageLoc);
             this.Click += FeedContent_Click;
+            storyTitleLabel.Click += FeedContent_Click;
+            storyImage.Click += FeedContent_Click;
+            storySourceAndTags.Click += FeedContent_Click;
         }
 
         private void FeedContent_Click(object sender, EventArgs e)

@@ -39,6 +39,7 @@ namespace Aggregate
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.storyPanel = new System.Windows.Forms.Panel();
+            this.editSources = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -81,7 +82,7 @@ namespace Aggregate
             this.feedPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(58)))), ((int)(((byte)(74)))));
             this.feedPanel.Location = new System.Drawing.Point(0, 60);
             this.feedPanel.Name = "feedPanel";
-            this.feedPanel.Size = new System.Drawing.Size(266, 602);
+            this.feedPanel.Size = new System.Drawing.Size(266, 555);
             this.feedPanel.TabIndex = 1;
             // 
             // panel3
@@ -94,7 +95,7 @@ namespace Aggregate
             this.panel3.Controls.Add(this.label2);
             this.panel3.Location = new System.Drawing.Point(266, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1119, 60);
+            this.panel3.Size = new System.Drawing.Size(1122, 60);
             this.panel3.TabIndex = 1;
             // 
             // button1
@@ -104,21 +105,23 @@ namespace Aggregate
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(1065, 12);
+            this.button1.Location = new System.Drawing.Point(1068, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 40);
             this.button1.TabIndex = 2;
             this.button1.Text = "Q";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
             // 
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(787, 12);
+            this.textBox1.Location = new System.Drawing.Point(790, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(318, 40);
             this.textBox1.TabIndex = 3;
+            this.textBox1.Visible = false;
             // 
             // label2
             // 
@@ -140,15 +143,30 @@ namespace Aggregate
             this.storyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(102)))), ((int)(((byte)(116)))));
             this.storyPanel.Location = new System.Drawing.Point(266, 60);
             this.storyPanel.Name = "storyPanel";
-            this.storyPanel.Size = new System.Drawing.Size(1119, 602);
+            this.storyPanel.Size = new System.Drawing.Size(1122, 602);
             this.storyPanel.TabIndex = 3;
+            // 
+            // editSources
+            // 
+            this.editSources.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(200)))), ((int)(((byte)(54)))));
+            this.editSources.FlatAppearance.BorderSize = 0;
+            this.editSources.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editSources.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editSources.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.editSources.Location = new System.Drawing.Point(0, 609);
+            this.editSources.Name = "editSources";
+            this.editSources.Size = new System.Drawing.Size(266, 53);
+            this.editSources.TabIndex = 4;
+            this.editSources.Text = "Edit Sources";
+            this.editSources.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(102)))), ((int)(((byte)(116)))));
-            this.ClientSize = new System.Drawing.Size(1384, 661);
+            this.ClientSize = new System.Drawing.Size(1387, 661);
+            this.Controls.Add(this.editSources);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.storyPanel);
             this.Controls.Add(this.feedPanel);
@@ -176,6 +194,7 @@ namespace Aggregate
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel storyPanel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button editSources;
     }
 }
 
