@@ -135,38 +135,42 @@ namespace Aggregate
                 {
                     Article article = new Article();
                     XmlNode rssSubNodeTitle = node.SelectSingleNode("title");
-                    article.title = rssSubNodeTitle.InnerText;
-
-                    XmlNode rssSubNodeLink = node.SelectSingleNode("link");
-                    article.link = rssSubNodeLink.InnerText;
-
-                    XmlNode rssSubNodeDesc = node.SelectSingleNode("description");
-                    if (rssSubNodeDesc != null)
-                    {
-                        article.description = rssSubNodeDesc.InnerText;
-                    }
+                    if (rssSubNodeTitle.InnerText.StartsWith("<")) { }
                     else
                     {
-                        article.description = "No Description";
-                    }
+                        article.title = rssSubNodeTitle.InnerText;
 
-                    XmlNode rssSubNodeImg = node.SelectSingleNode("enclosure");
-                    if (rssSubNodeImg != null && rssSubNodeImg.Attributes["type"].Value.StartsWith("image"))
-                    {
-                        article.image = rssSubNodeImg.Attributes["url"].Value;
-                    }
-                    else
-                    {
-                        article.image = "https://www.colorhexa.com/707070.png";
-                    }
+                        XmlNode rssSubNodeLink = node.SelectSingleNode("link");
+                        article.link = rssSubNodeLink.InnerText;
 
-                    //XmlNode rssSubNodeCat = node.SelectSingleNode("category");
-                    //article.tags = rssSubNodeCat.InnerText;
-                    article.tags = "";
-                    //Somehow, you need to incorporate a way to get the source and categories, jason! ----------------------------------------------------------------493585283475243809752764560413875097
-                    article.author = pub;
+                        XmlNode rssSubNodeDesc = node.SelectSingleNode("description");
+                        if (rssSubNodeDesc != null)
+                        {
+                            article.description = rssSubNodeDesc.InnerText;
+                        }
+                        else
+                        {
+                            article.description = "No Description";
+                        }
 
-                    arts.articles.Add(article); //Adds the article to the list of articles
+                        XmlNode rssSubNodeImg = node.SelectSingleNode("enclosure");
+                        if (rssSubNodeImg != null && rssSubNodeImg.Attributes["type"].Value.StartsWith("image"))
+                        {
+                            article.image = rssSubNodeImg.Attributes["url"].Value;
+                        }
+                        else
+                        {
+                            article.image = "https://www.colorhexa.com/707070.png";
+                        }
+
+                        //XmlNode rssSubNodeCat = node.SelectSingleNode("category");
+                        //article.tags = rssSubNodeCat.InnerText;
+                        article.tags = "";
+                        //Somehow, you need to incorporate a way to get the source and categories, jason! ----------------------------------------------------------------493585283475243809752764560413875097
+                        article.author = pub;
+
+                        arts.articles.Add(article); //Adds the article to the list of articles
+                    }
                 }
             }
         }
