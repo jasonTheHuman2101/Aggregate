@@ -44,6 +44,7 @@ namespace Aggregate
             this.label5 = new System.Windows.Forms.Label();
             this.sourceImage = new System.Windows.Forms.TextBox();
             this.sourceImagePreview = new System.Windows.Forms.PictureBox();
+            this.deleteSource = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sourceImagePreview)).BeginInit();
@@ -60,6 +61,7 @@ namespace Aggregate
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.deleteSource);
             this.groupBox1.Controls.Add(this.sourceImagePreview);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.sourceImage);
@@ -190,6 +192,19 @@ namespace Aggregate
             this.sourceImagePreview.TabIndex = 8;
             this.sourceImagePreview.TabStop = false;
             // 
+            // deleteSource
+            // 
+            this.deleteSource.BackColor = System.Drawing.Color.Firebrick;
+            this.deleteSource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteSource.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.deleteSource.Location = new System.Drawing.Point(140, 0);
+            this.deleteSource.Name = "deleteSource";
+            this.deleteSource.Size = new System.Drawing.Size(171, 27);
+            this.deleteSource.TabIndex = 9;
+            this.deleteSource.Text = "DELETE";
+            this.deleteSource.UseVisualStyleBackColor = false;
+            this.deleteSource.Click += new System.EventHandler(this.deleteSource_Click);
+            // 
             // EditSources
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,5 +241,6 @@ namespace Aggregate
         private System.Windows.Forms.PictureBox sourceImagePreview;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox sourceImage;
+        private System.Windows.Forms.Button deleteSource;
     }
 }

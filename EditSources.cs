@@ -26,8 +26,8 @@ namespace Aggregate
 
         void loadSources() //Loads in the sources and puts them in as buttons. Below is the action for ButtonClicked events
         {
+            sourcesPanel.Controls.Clear();
             openFile();
-
 
             int x = 0;
 
@@ -138,6 +138,16 @@ namespace Aggregate
             newSource.sourceName = sourceName.Text;
             scs.sources[selectedSourceIndex] = newSource;
 
+            saveFile();
+            loadSources();
+        }
+
+        private void deleteSource_Click(object sender, EventArgs e)
+        {
+            scs.sources.RemoveAt(selectedSourceIndex);
+            sourceName.Text = String.Empty;
+            sourceUrl.Text = String.Empty;
+            sourceImage.Text = String.Empty;
             saveFile();
             loadSources();
         }

@@ -40,6 +40,8 @@ namespace Aggregate
             this.label2 = new System.Windows.Forms.Label();
             this.storyPanel = new System.Windows.Forms.Panel();
             this.editSources = new System.Windows.Forms.Button();
+            this.refresh_button = new System.Windows.Forms.Button();
+            this.progBar = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -90,6 +92,8 @@ namespace Aggregate
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(48)))), ((int)(((byte)(74)))));
+            this.panel3.Controls.Add(this.progBar);
+            this.panel3.Controls.Add(this.refresh_button);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.label2);
@@ -162,6 +166,28 @@ namespace Aggregate
             this.editSources.UseVisualStyleBackColor = false;
             this.editSources.Click += new System.EventHandler(this.editSources_Click);
             // 
+            // refresh_button
+            // 
+            this.refresh_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("refresh_button.BackgroundImage")));
+            this.refresh_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.refresh_button.Location = new System.Drawing.Point(212, 12);
+            this.refresh_button.Name = "refresh_button";
+            this.refresh_button.Size = new System.Drawing.Size(40, 40);
+            this.refresh_button.TabIndex = 4;
+            this.refresh_button.UseVisualStyleBackColor = true;
+            this.refresh_button.Click += new System.EventHandler(this.refresh_button_Click);
+            // 
+            // progBar
+            // 
+            this.progBar.Location = new System.Drawing.Point(259, 13);
+            this.progBar.MarqueeAnimationSpeed = 10;
+            this.progBar.Name = "progBar";
+            this.progBar.Size = new System.Drawing.Size(525, 39);
+            this.progBar.Step = 30;
+            this.progBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progBar.TabIndex = 5;
+            this.progBar.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,6 +223,8 @@ namespace Aggregate
         private System.Windows.Forms.Panel storyPanel;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button editSources;
+        private System.Windows.Forms.Button refresh_button;
+        private System.Windows.Forms.ProgressBar progBar;
     }
 }
 

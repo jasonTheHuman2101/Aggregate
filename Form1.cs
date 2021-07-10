@@ -42,12 +42,14 @@ namespace Aggregate
 
         void loadData()
         {
+            progBar.Show();
             feedPanel.Controls.Clear();
             storyPanel.Controls.Clear();
 
             GetSourcesFromFile();
             DisplaySources();
             DisplayArticles();
+            progBar.Hide();
         }
 
         void GetSourcesFromFile()
@@ -173,6 +175,12 @@ namespace Aggregate
         {
             EditSources es = new EditSources();
             es.ShowDialog();
+            loadData();
+        }
+
+        private void refresh_button_Click(object sender, EventArgs e)
+        {
+            loadData();
         }
     }
 }
