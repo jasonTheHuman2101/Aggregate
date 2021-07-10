@@ -139,7 +139,14 @@ namespace Aggregate
                     article.link = rssSubNodeLink.InnerText;
 
                     XmlNode rssSubNodeDesc = node.SelectSingleNode("description");
-                    article.description = rssSubNodeDesc.InnerText;
+                    if (rssSubNodeDesc != null)
+                    {
+                        article.description = rssSubNodeDesc.InnerText;
+                    }
+                    else
+                    {
+                        article.description = "No Description";
+                    }
 
                     XmlNode rssSubNodeImg = node.SelectSingleNode("enclosure");
                     if (rssSubNodeImg != null && rssSubNodeImg.Attributes["type"].Value.StartsWith("image"))

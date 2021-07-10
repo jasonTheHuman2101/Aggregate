@@ -84,6 +84,7 @@ namespace Aggregate
             this.updateSource.TabIndex = 1;
             this.updateSource.Text = "Update";
             this.updateSource.UseVisualStyleBackColor = true;
+            this.updateSource.Click += new System.EventHandler(this.updateSource_Click);
             // 
             // label1
             // 
@@ -131,6 +132,7 @@ namespace Aggregate
             this.addSrcBttn.TabIndex = 2;
             this.addSrcBttn.Text = "View Source";
             this.addSrcBttn.UseVisualStyleBackColor = true;
+            this.addSrcBttn.Click += new System.EventHandler(this.addSrcBttn_Click);
             // 
             // sourceName
             // 
