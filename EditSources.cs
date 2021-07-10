@@ -90,6 +90,7 @@ namespace Aggregate
         {
             try
             {
+                string im;
                 XmlDocument xmlDoc = new XmlDocument();//  ----¬
                 xmlDoc.Load(newSourceURL.Text);// ---- ---- ---- ---- ---- \-- Loads the RSS feed into the program. The value in .Load defines the URL
 
@@ -98,10 +99,16 @@ namespace Aggregate
 
                 XmlNode title = chan.SelectSingleNode("title");
                 XmlNode img = chan.SelectSingleNode("image");
-                XmlNode imglink = img.SelectSingleNode("url");
-
+                if(img != null)
+                {
+                    XmlNode imglink = img.SelectSingleNode("url");
+                    im = imglink.InnerText;
+                }
+                else
+                {
+                    im = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png";
+                }
                 string ti = title.InnerText;
-                string im = imglink.InnerText;
 
                 Source source = new Source();
                 source.imageUrl = im;
